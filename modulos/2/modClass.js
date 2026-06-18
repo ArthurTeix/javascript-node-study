@@ -4,6 +4,6 @@ module.exports = class Cachorro {
     }
 
     latir() {
-        return 'au au'
+        return `${this.nome} está latindo: au au`
     }
 }
