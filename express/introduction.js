@@ -13,3 +13,11 @@ const app = express()
 // Operações com express:
 // CRUD -> CREATE, READ, UPDATE, DELETE
 //          POST   GET    PUT   DELETE
+
+// O método get precisa de dois parâmetros, um é a rota e o outro é uma função que recebe a requisição e a resposta
+app.get('/', (req, res) => { 
+    res.send("Hello World")
+})
+
+// estou notificando ao express para escutar tudo que acontece nessa porta, e para responder automaticamente quando chegar uma requisição
+app.listen(3000)
