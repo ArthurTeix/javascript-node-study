@@ -20,4 +20,7 @@ app.get('/', (req, res) => {
 })
 
 // estou notificando ao express para escutar tudo que acontece nessa porta, e para responder automaticamente quando chegar uma requisição
-app.listen(3000)
+app.listen(3000, () => {
+    console.log("Acessar http://localhost:3000")
+    console.log("Servidor executando na porta 3000")
+})
