@@ -16,8 +16,18 @@ const app = express()
 
 // O método get precisa de dois parâmetros, um é a rota e o outro é uma função que recebe a requisição e a resposta
 app.get('/', (req, res) => { 
-    res.send("Hello World")
+    res.send(`
+        <form action='/' method='POST'>
+            Nome: <input type='text' name='nome'>
+            <button>Enviar</button>
+        </form> 
+    `)
 })
+
+// Criação de método POST para receber o forms sem mensagem de erro
+app.post('/', (req, res) => res.send("Recebi o formulário."))
+
+app.get('/contato', (req, res) => res.send("Obrigado por entrar em contato com a gente."))
 
 // estou notificando ao express para escutar tudo que acontece nessa porta, e para responder automaticamente quando chegar uma requisição
 app.listen(3000, () => {
