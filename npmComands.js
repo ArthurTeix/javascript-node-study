@@ -1,6 +1,6 @@
 /*
 Para iniciar o projeto devo instalar o package.json 
-    -> npm i -y || npm install -y
+    -> npm init -y
 
 Para implementar o node_modules
     -> npm i
