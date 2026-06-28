@@ -11,10 +11,12 @@ app.get('/', (req, res) => {
     `)
 })
 
-// Para receber parâmetros na requisição, uso /:nomeDoParâ
-app.get('/testes/:idUsuarios', (req, res) => {
+// Para receber parâmetros na requisição, uso /:nomeDoParâ <- uso obrigatorio de parâm
+// Para receber parâmetros na requisição, uso {/:nomeDoParâ} <- uso opcional de parâm
+
+app.get('/testes{/:idUsuarios}', (req, res) => {
     console.log(req.params)
-    res.send("oi")
+    res.send(req.params.idUsuarios ?? 'nenhum parametro foi passado')
 })
 
 app.post('/', (req, res) => res.send("Recebi o formulário."))
