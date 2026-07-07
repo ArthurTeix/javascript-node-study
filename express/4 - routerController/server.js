@@ -8,15 +8,6 @@ app.use(
     )
 )
 
-app.get('/', (req, res) => {
-    res.send(`
-        <form action='/' method='POST'>
-            Brasil: <input type='text' name='nome'>
-            <button>Enviar Formulário</button>
-        </form> 
-    `)
-})
-
 app.get('/testes{/:idUsuarios/:nomeUsuario}', (req, res) => {
     console.log(req.params)
     console.log(req.query)
