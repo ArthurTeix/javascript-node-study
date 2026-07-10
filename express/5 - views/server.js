@@ -9,7 +9,7 @@ const routes = require('./router')
 app.use(express.urlencoded({ extended: true }))
 
 // caminho absoluto para a pasta views
-app.set('views', path(__dirname, 'src', 'views'))
+app.set('views', path.resolve(__dirname, 'src', 'views'))
 
 app.set('view engine', 'ejs')
 
