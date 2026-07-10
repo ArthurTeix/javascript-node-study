@@ -2,10 +2,10 @@ const express = require('express')
 const route = express.Router()
 
 // importando controller da home
-const homeController = require('./controllers/homeController.js')
+const homeController = require('./src/controllers/homeController.js')
 
 // importando controller da pág de contatos
-const contatoController = require('./controllers/contatoController.js')
+const contatoController = require('./src/controllers/contatoController.js')
 
 // organizando melhor o arquivo de rotas, removendo as funções usando elas importadas
 // rotas da home

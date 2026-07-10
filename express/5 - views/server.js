@@ -1,10 +1,17 @@
 const express = require('express')
 const app = express()
+const path = require('path')
 
 // importando rotas
 const routes = require('./router')
 
+
 app.use(express.urlencoded({ extended: true }))
+
+// caminho absoluto para a pasta views
+app.set('views', path(__dirname, 'src', 'views'))
+
+app.set('view engine', 'ejs')
 
 // usando rotas
 app.use(routes)
