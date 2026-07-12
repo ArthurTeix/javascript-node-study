@@ -5,8 +5,10 @@ const path = require('path')
 // importando rotas
 const routes = require('./router')
 
-
 app.use(express.urlencoded({ extended: true }))
+
+// aqui carrego meus conteúdos estáticos
+app.use(express.static(path.resolve(__dirname, 'public')))
 
 // caminho absoluto para a pasta views
 app.set('views', path.resolve(__dirname, 'src', 'views'))
