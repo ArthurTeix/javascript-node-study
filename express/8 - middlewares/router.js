@@ -1,6 +1,10 @@
 const express = require('express')
 const route = express.Router()
 
+function meuMiddleware(req, res) {
+
+}
+
 // importando controller da home
 const homeController = require('./src/controllers/homeController.js')
 
