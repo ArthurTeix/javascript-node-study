@@ -2,7 +2,9 @@ const express = require('express')
 const route = express.Router()
 
 function meuMiddleware(req, res, next) {
+    console.log()
     console.log('passei no seu middleware')
+    console.log()
     next()
 }
 
@@ -14,7 +16,11 @@ const contatoController = require('./src/controllers/contatoController.js')
 
 // organizando melhor o arquivo de rotas, removendo as funções usando elas importadas
 // rotas da home
-route.get('/', meuMiddleware, homeController.paginaInicial)
+route.get('/', meuMiddleware, homeController.paginaInicial, (req, res, next) => {
+    console.log()
+    console.log('ainda estou aqui')
+    console.log()
+})
 route.post('/', homeController.trataPost)
 
 // rotas de contato

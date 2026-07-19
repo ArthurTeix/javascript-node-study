@@ -12,4 +12,7 @@ app.use((req, res, next) => {
     next();
 });
 
+O exemplo usado na página inicial funciona assim: 
+1º chamo o middleware "passei no seu middleware" e depois chamo a página para ser exibida
+2º após iniciar a página, vou chamar outra function middleware "ainda estou aqui" que invoquei no control da páginaInicial 
 */
