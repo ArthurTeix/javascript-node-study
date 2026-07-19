@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: true }))
 // aqui carrego meus conteúdos estáticos
 app.use(express.static(path.resolve(__dirname, 'public')))
 
-// usando middleware em todas as requisições do site (global)
+// usando middleware em todas as requisições do site (global) -> "Passei no middleware global"
 app.use(meuMiddleware)
 
 // caminho absoluto para a pasta views
