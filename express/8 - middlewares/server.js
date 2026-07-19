@@ -13,6 +13,9 @@ app.use(express.urlencoded({ extended: true }))
 // aqui carrego meus conteúdos estáticos
 app.use(express.static(path.resolve(__dirname, 'public')))
 
+// usando middleware em todas as requisições do site (global)
+app.use(meuMiddleware)
+
 // caminho absoluto para a pasta views
 app.set('views', path.resolve(__dirname, 'src', 'views'))
 

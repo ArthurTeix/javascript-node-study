@@ -4,4 +4,6 @@ module.exports = (req, res, next) => {
     console.log()
     console.log('passei no middleware global')
     console.log()
+
+    next() // <- NUNCA ESQUECER
 }
