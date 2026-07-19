@@ -5,6 +5,9 @@ const path = require('path')
 // importando rotas
 const routes = require('./router')
 
+// importando middlewares
+const meuMiddleware = require('./src/middlewares/middleware.js')
+
 app.use(express.urlencoded({ extended: true }))
 
 // aqui carrego meus conteúdos estáticos
