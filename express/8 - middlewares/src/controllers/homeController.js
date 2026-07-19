@@ -1,11 +1,16 @@
-// exportando função da pag inicial para usar no server
+
 // o parâmetro next, é referente ao próximo middleware
-exports.paginaInicial = (req, res, next) => {
-    console.log('oiee')
+// exemplo middleware
+// exports.paginaInicial = (req, res, next) => {
+//     res.render('index')
+//     next()
+// } 
+exports.paginaInicial = (req, res) => {
     res.render('index')
-    next()
+    return
 } 
 
-exports.trataPost = (req, res, next) => {
+exports.trataPost = (req, res) => {
     res.send("ei, sou sua nova rota de POST")
+    return
 }
