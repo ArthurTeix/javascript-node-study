@@ -27540,7 +27540,6 @@ let __webpack_exports__ = {};
 __webpack_require__(/*! core-js/stable */ "./node_modules/core-js/stable/index.js");
 __webpack_require__(/*! regenerator-runtime/runtime */ "./node_modules/regenerator-runtime/runtime.js");
 __webpack_require__(/*! ./assets/css/style.css */ "./frontend/assets/css/style.css");
-alert(1);
 })();
 
 /******/ })()
