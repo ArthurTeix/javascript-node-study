@@ -1,6 +1,11 @@
+require("node:dns/promises").setServers(["1.1.1.1", "8.8.8.8"]);
 const express = require('express')
 const app = express()
 
+// iniciando conexão ao mongo
+const mongoose = require('mongoose')
+const connectionString = 'mongodb+srv://arthurteixeiracl:ar110308@cursojs01.3fk1ta5.mongodb.net/'
+mongoose.connect(connectionString)
 
 const path = require('path')
 
