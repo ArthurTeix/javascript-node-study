@@ -7,7 +7,12 @@ const app = express()
 // iniciando conexão ao mongo
 const mongoose = require('mongoose')
 const connectionString = 'mongodb+srv://arthurteixeiracl:ar110308@cursojs01.3fk1ta5.mongodb.net/'
-mongoose.connect(connectionString)
+
+mongoose.connect(connectionString) // agora vou garantir que antes do site iniciar, deve-se conectar primeiro ao banco de dados
+    .then(() => {
+        console.log("Conectei ao Banco de Dados")
+        app.emit('Pronto para conexão') // <- emitindo alerta nno sistema para quando o bd estiver conectado (vou receber no 'app.on' ao fim do código)
+    })
 
 const path = require('path')
 
@@ -27,7 +32,9 @@ app.set('view engine', 'ejs')
 // usando rotas
 app.use(routes)
 
-app.listen(3000, () => {
-    console.log('Servidor rodando na porta 3000')
-    console.log(`Acessar http://localhost:3000`)
+app.on('Pronto para conexão', () => { // agora só será ativado o app.listen após o banco de dados estiver conectado e emitir a mensagem
+    app.listen(3000, () => {
+        console.log('Servidor rodando na porta 3000')
+        console.log(`Acessar http://localhost:3000`)
+    })
 })
