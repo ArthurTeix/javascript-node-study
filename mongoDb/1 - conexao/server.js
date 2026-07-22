@@ -1,3 +1,5 @@
+// LINHA QUE DIZ AO NODE QUAIS DNS USAR (SEMPRE UTILIZAR ATE CORREÇÃO DE BUG DO PROPRIO NODE)
+// SEMPRE DEIXAR NO TOPO DO ARQUIVO SERVER
 require("node:dns/promises").setServers(["1.1.1.1", "8.8.8.8"]);
 const express = require('express')
 const app = express()
