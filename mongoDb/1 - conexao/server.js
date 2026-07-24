@@ -1,18 +1,22 @@
 // LINHA QUE DIZ AO NODE QUAIS DNS USAR (SEMPRE UTILIZAR ATE CORREÇÃO DE BUG DO PROPRIO NODE)
 // SEMPRE DEIXAR NO TOPO DO ARQUIVO SERVER
 require("node:dns/promises").setServers(["1.1.1.1", "8.8.8.8"]);
+
+// biblioteca dotenv, para proteger informações privadas
+require('dotenv').config()
+
 const express = require('express')
 const app = express()
 
 // iniciando conexão ao mongo
 const mongoose = require('mongoose')
-const connectionString = 'mongodb+srv://arthurteixeiracl:ar110308@cursojs01.3fk1ta5.mongodb.net/'
 
-mongoose.connect(connectionString) // agora vou garantir que antes do site iniciar, deve-se conectar primeiro ao banco de dados
-    .then(() => {
+mongoose.connect(process.env.CONNECTIONSTRING)  
+    .then(() => { // agora vou garantir que antes do site iniciar, deve-se conectar primeiro ao banco de dados
         console.log("Conectei ao Banco de Dados")
         app.emit('Pronto para conexão') // <- emitindo alerta nno sistema para quando o bd estiver conectado (vou receber no 'app.on' ao fim do código)
     })
+    .catch(e => console.log(e))
 
 const path = require('path')
 
