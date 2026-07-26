@@ -8,6 +8,7 @@ exports.paginaInicial = (req, res) => {
     // req.flash('err', "Algo deu errado")
     // req.flash('sucess', "Sucesso!")
     // console.log(req.flash('info'), req.flash('err'), req.flash('sucess'))
+    
     res.render('index')
     return
 } 
