@@ -21,6 +21,17 @@ const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
 const flash = require('connect-flash')
 
+const sessionOptions = session({
+    secret: 'texto que ninguém vai ler',
+    store: MongoStore.create({ mongoUrl: process.env.CONNECTIONSTRING}), // onde deve armazenas os dados
+    resave: false, // Controla se a sessão deve ser regravada no store a cada requisição, mesmo que nada tenha mudado nela
+    saveUninitialized: false,
+    cookie: {
+        maxAge: 1000 * 60 * 60 * 24 * 7, // tempo de duração de 7 dias em milesimos de segundos
+        httpOnly: true
+    }
+})
+
 const routes = require('./router')
 
 const meuMiddleware = require('./src/middlewares/middleware.js')
