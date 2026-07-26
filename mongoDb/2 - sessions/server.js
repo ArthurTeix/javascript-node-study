@@ -18,7 +18,7 @@ mongoose.connect(process.env.CONNECTIONSTRING)
 const path = require('path')
 
 const session = require('express-session')
-const MongoStore = require('connect-mongo')(session)
+const { MongoStore } = require('connect-mongo')
 const flash = require('connect-flash')
 
 const sessionOptions = session({
@@ -31,6 +31,9 @@ const sessionOptions = session({
         httpOnly: true
     }
 })
+
+app.use(sessionOptions)
+app.use(flash())
 
 const routes = require('./router')
 
