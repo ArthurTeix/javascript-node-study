@@ -15,8 +15,6 @@ mongoose.connect(process.env.CONNECTIONSTRING)
     })
     .catch(e => console.log(e))
 
-const path = require('path')
-
 const session = require('express-session')
 const { MongoStore } = require('connect-mongo')
 const flash = require('connect-flash')
@@ -36,18 +34,18 @@ app.use(sessionOptions)
 app.use(flash())
 
 const routes = require('./router')
-
-const meuMiddleware = require('./src/middlewares/middleware.js')
+const path = require('path')
+const { middlewareGlobal } = require('./src/middlewares/middleware.js')
 
 
 app.use(express.urlencoded({ extended: true }))
-
 app.use(express.static(path.resolve(__dirname, 'public')))
 
 app.set('views', path.resolve(__dirname, 'src', 'views'))
 app.set('view engine', 'ejs')
 
-
+// nossos próprios middlewares
+app.use(middlewareGlobal)
 app.use(routes)
 
 app.on('Pronto para conexão', () => {
