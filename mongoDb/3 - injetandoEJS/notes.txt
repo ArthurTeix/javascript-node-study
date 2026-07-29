@@ -1,0 +1,3 @@
+<%  %>      CONTROLE DE FLUXO (if, for e outros js)
+<%= %>      DEVOLVE IGUAL AO QUE ESTÁ ESCRITO (ex de uso em index.ejs)
+<%- %>      DEVOLVE EXECUTADO O QUE ESTÁ ESCRITO (ex de uso em index.ejs)
