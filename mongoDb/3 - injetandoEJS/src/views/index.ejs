@@ -6,19 +6,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Estudos de implementação</title>
+    <title>Injetações diretas no EJS</title>
 </head>
 
 <body>
     <section class="container">
+        <!--    INJETADOS DIRETAMENTE DE homeController.js
         <h5>
-            <%= titulo %> <!-- Com o sinal de =, ele me traz exatamente o que tem (mais fiel) -->
+            <%= titulo %> !-- Com o sinal de =, ele me traz exatamente o que tem (mais fiel) --
             <br>     
-            <%- titulo %> <!-- Com o sinal de -, ele me executa o código html presente -->
+            <%- titulo %> !-- Com o sinal de -, ele me executa o código html presente --
         </h5>
 
         <h6>
-            <!-- Quando não tiver nenhum sinal, é apenas controle de fluxo -->
+            !-- Quando não tiver nenhum sinal, é apenas controle de fluxo --
             <% if (typeof mensagem !== 'undefined') {%>
                 <%= mensagem %>
             <% } else { %>
@@ -31,6 +32,7 @@
                 <%=value%>
             <%}%>
         </h6>
+        -->
 
         <form action="/" method="post">
             <label>Nome:</label>
