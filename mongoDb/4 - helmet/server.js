@@ -20,7 +20,8 @@ const flash = require('connect-flash')
 const routes = require('./router')
 const path = require('path')
 const helmet = require('helmet') // extensão de proteção http
-const { middlewareGlobal } = require('./src/middlewares/middleware.js')
+const csrf = require('csurf') 
+const { middlewareGlobal, checkCsrfError } = require('./src/middlewares/middleware.js')
 const sessionOptions = session({
     secret: 'texto que ninguém vai ler',
     store: MongoStore.create({ mongoUrl: process.env.CONNECTIONSTRING}),
@@ -39,7 +40,10 @@ app.use(flash())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static(path.resolve(__dirname, 'public')))
 
+app.use(csrf()) // deve ser usado antes das rotas, pois vai realizar uma checagem de token sempre antes de direcionar   
+
 app.use(middlewareGlobal)
+app.use(checkCsrfError)
 app.use(routes)
 
 app.set('views', path.resolve(__dirname, 'src', 'views'))

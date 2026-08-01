@@ -1,3 +1,10 @@
-                HELMEL
+                            HELMEL
 -O Helmet é um middleware de segurança para aplicações Express.js. Ele não faz uma coisa só — na verdade é um conjunto de vários pequenos middlewares que configuram cabeçalhos HTTP (HTTP headers) de segurança automaticamente, protegendo sua aplicação contra vulnerabilidades comuns da web.
 
+
+                            CSURF (CSRF)
+-O csurf protege contra ataques CSRF (quando um site malicioso tenta fazer requisições em nome do usuário logado, usando os cookies de sessão dele sem permissão).
+
+Ele faz isso gerando um token único que precisa ser enviado junto em toda requisição sensível (POST, PUT, DELETE). Se o token não vier ou estiver errado, a requisição é bloqueada — porque um site externo não tem como conhecer esse token.
+
+Em resumo: garante que a requisição realmente veio do seu formulário/site, e não de um site externo malicioso.
