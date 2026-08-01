@@ -7,6 +7,7 @@ exports.checkCsrfError = (err, req, res, next) => {
     if (err && err.code === 'EBADCSRFTOKEN') { // se o erro for a falta de token
         return res.render('404')
     }
+    next()
 }
 
 exports.csrfMiddleware = (req, res, next) => { // token da minha url

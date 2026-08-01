@@ -8,7 +8,8 @@
 
         <form action="/" method="post">
 
-            <input type="hidden" name="_csrf" value="<%=csrfToken%>">
+            <!-- Aqui é onde confirmo e envio o csrf, assim, permitindo passar a página -->
+            <input type="hidden" name="_csrf" value="<%=csrfToken%>"> 
 
             <label>Nome:</label>
             <input type="text" name="cliente">
