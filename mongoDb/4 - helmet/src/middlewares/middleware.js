@@ -8,3 +8,8 @@ exports.checkCsrfError = (err, req, res, next) => {
         return res.render('404')
     }
 }
+
+exports.csrfMiddleware = (req, res, next) => { // token da minha url
+    res.locals.csrfToken = req.csrfToken() // vai estar disponível em todas as views (páginas)
+    next()
+}
