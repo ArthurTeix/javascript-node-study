@@ -14,7 +14,7 @@ mongoose.connect(process.env.CONNECTIONSTRING)
     })
     .catch(e => console.log(e))
 
-const session = require('express-session')
+const session = require('express-session') 
 const { MongoStore } = require('connect-mongo')
 const flash = require('connect-flash')
 const routes = require('./router')
@@ -22,6 +22,8 @@ const path = require('path')
 const helmet = require('helmet') // extensão de proteção http
 const csrf = require('csurf') 
 const { middlewareGlobal, checkCsrfError, csrfMiddleware } = require('./src/middlewares/middleware.js')
+
+// configurações dos cookies salvos
 const sessionOptions = session({
     secret: 'texto que ninguém vai ler',
     store: MongoStore.create({ mongoUrl: process.env.CONNECTIONSTRING}),
