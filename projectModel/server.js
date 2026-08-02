@@ -36,6 +36,7 @@ const sessionOptions = session({
 app.use(helmet())
 
 app.use(sessionOptions)
+app.use(express.json())
 app.use(flash())
 
 app.use(express.urlencoded({ extended: true }))
